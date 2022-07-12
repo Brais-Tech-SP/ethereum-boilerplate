@@ -84,9 +84,9 @@ export default function Contract() {
           <Form.Provider
             onFormFinish={async (name, { forms }) => {
               const params = forms[name].getFieldsValue();
-
+              // if (!contract?.abi) return;
               let isView = false;
-              for (let method of contract?.abi) {
+              for (let method of contract.abi) {
                 if (method.name !== name) continue;
                 console.log(method);
                 if (method.stateMutability === "view") isView = true;
